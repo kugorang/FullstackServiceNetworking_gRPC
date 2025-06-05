@@ -6,10 +6,6 @@
 #include "bidirectional.pb.h"
 #include "bidirectional.grpc.pb.h"
 
-using namespace std;
-using namespace bidirectional;
-using namespace grpc;
-
 /**
  * BidirectionalClient 클래스
  * 
@@ -23,7 +19,7 @@ private:
      * gRPC stub
      * 원격 서비스 호출을 위한 인터페이스입니다.
      */
-    unique_ptr<Bidirectional::Stub> stub;
+    std::unique_ptr<bidirectional::Bidirectional::Stub> stub;
     
 public:
     /**
@@ -31,7 +27,7 @@ public:
      * 
      * @param channel 서버와의 통신 채널
      */
-    BidirectionalClient(shared_ptr<Channel> channel);
+    BidirectionalClient(std::shared_ptr<grpc::Channel> channel);
     
     /**
      * SendAndReceiveMessages 메서드

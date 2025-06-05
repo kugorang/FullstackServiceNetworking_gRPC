@@ -3,6 +3,10 @@
 #include <thread>
 #include <vector>
 
+using namespace std;
+using namespace grpc;
+using namespace bidirectional;
+
 BidirectionalClient::BidirectionalClient(shared_ptr<Channel> channel)
 {
     stub = Bidirectional::NewStub(channel);

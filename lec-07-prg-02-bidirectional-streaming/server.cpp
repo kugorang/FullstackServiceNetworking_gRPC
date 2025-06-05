@@ -2,6 +2,8 @@
 #include <iostream>
 
 using namespace std;
+using namespace grpc;
+using namespace bidirectional;
 
 Status BidirectionalServer::GetServerResponse(ServerContext* context,
     ServerReaderWriter<Message, Message>* stream)
