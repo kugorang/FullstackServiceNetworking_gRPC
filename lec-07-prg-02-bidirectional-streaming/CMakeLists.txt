@@ -22,7 +22,7 @@ add_executable(bidirectional_server
 
 target_link_libraries(bidirectional_server
     gRPC::grpc++
-    gRPC::grpc++_reflection
+    # gRPC::grpc++_reflection  # 제거
     protobuf::libprotobuf
     Threads::Threads
 )
