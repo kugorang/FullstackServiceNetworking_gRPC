@@ -2,6 +2,8 @@
 #include <iostream>
 
 using namespace std;
+using namespace grpc;
+using namespace clientstreaming;
 
 Status ClientStreamingServer::GetServerResponse(ServerContext* context,
     ServerReader<Message>* reader, Number* response)

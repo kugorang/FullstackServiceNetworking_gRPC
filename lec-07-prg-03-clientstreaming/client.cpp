@@ -2,6 +2,10 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+using namespace grpc;
+using namespace clientstreaming;
+
 ClientStreamingClient::ClientStreamingClient(shared_ptr<Channel> channel)
 {
     stub = ClientStreaming::NewStub(channel);

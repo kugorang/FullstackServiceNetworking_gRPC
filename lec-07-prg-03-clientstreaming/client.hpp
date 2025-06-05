@@ -6,10 +6,6 @@
 #include "clientstreaming.pb.h"
 #include "clientstreaming.grpc.pb.h"
 
-using namespace std;
-using namespace grpc;
-using namespace clientstreaming;
-
 /**
  * ClientStreamingClient 클래스
  * 
@@ -23,7 +19,7 @@ private:
      * gRPC stub
      * 원격 서비스 호출을 위한 인터페이스입니다.
      */
-    unique_ptr<ClientStreaming::Stub> stub;
+    std::unique_ptr<clientstreaming::ClientStreaming::Stub> stub;
     
 public:
     /**
@@ -31,7 +27,7 @@ public:
      * 
      * @param channel 서버와의 통신 채널
      */
-    ClientStreamingClient(shared_ptr<Channel> channel);
+    ClientStreamingClient(std::shared_ptr<grpc::Channel> channel);
     
     /**
      * SendMessages 메서드
