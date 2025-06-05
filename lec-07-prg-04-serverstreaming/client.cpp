@@ -1,6 +1,10 @@
 #include "client.hpp"
 #include <iostream>
 
+using namespace std;
+using namespace grpc;
+using namespace serverstreaming;
+
 ServerStreamingClient::ServerStreamingClient(shared_ptr<Channel> channel)
 {
     stub = serverstreaming::ServerStreaming::NewStub(channel);

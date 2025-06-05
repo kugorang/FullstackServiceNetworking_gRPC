@@ -5,17 +5,13 @@
 #include "serverstreaming.pb.h"
 #include "serverstreaming.grpc.pb.h"
 
-using namespace serverstreaming;
-using namespace grpc;
-
 /**
  * ServerStreamingServer 클래스
  * 
  * 서버 스트리밍 gRPC 서비스를 구현합니다.
  * 클라이언트로부터 단일 요청을 받고 여러 메시지를 스트림으로 전송합니다.
  */
-class ServerStreamingServer : public ServerStreaming::Service
-{
+class ServerStreamingServer : public serverstreaming::ServerStreaming::Service {
 public:
     /**
      * GetServerResponse - 서버 스트리밍 RPC 메서드
@@ -28,8 +24,10 @@ public:
      * @param writer 서버 메시지 스트림 writer
      * @return Status gRPC 상태 코드
      */
-    Status GetServerResponse(ServerContext* context, const Number* request,
-        ServerWriter<Message>* writer) override;
+    grpc::Status GetServerResponse(
+        grpc::ServerContext* context,
+        const serverstreaming::Number* request,
+        grpc::ServerWriter<serverstreaming::Message>* writer) override;
 };
 
 #endif

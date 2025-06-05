@@ -6,10 +6,6 @@
 #include "serverstreaming.pb.h"
 #include "serverstreaming.grpc.pb.h"
 
-using namespace std;
-using namespace serverstreaming;
-using namespace grpc;
-
 /**
  * ServerStreamingClient 클래스
  * 
@@ -23,7 +19,7 @@ private:
      * gRPC stub
      * 원격 서비스 호출을 위한 인터페이스입니다.
      */
-    unique_ptr<ServerStreaming::Stub> stub;
+    std::unique_ptr<serverstreaming::ServerStreaming::Stub> stub;
     
 public:
     /**
@@ -31,7 +27,7 @@ public:
      * 
      * @param channel 서버와의 통신 채널
      */
-    ServerStreamingClient(shared_ptr<Channel> channel);
+    ServerStreamingClient(std::shared_ptr<grpc::Channel> channel);
     
     /**
      * ReceiveMessages 메서드

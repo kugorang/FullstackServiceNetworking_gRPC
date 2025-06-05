@@ -4,6 +4,8 @@
 #include <thread>
 
 using namespace std;
+using namespace grpc;
+using namespace serverstreaming;
 
 Status ServerStreamingServer::GetServerResponse(ServerContext* context,
     const Number* request, ServerWriter<Message>* writer)
