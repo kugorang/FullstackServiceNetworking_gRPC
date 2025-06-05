@@ -22,7 +22,7 @@ add_executable(clientstreaming_server
 
 target_link_libraries(clientstreaming_server
     gRPC::grpc++
-    gRPC::grpc++_reflection
+    # gRPC::grpc++_reflection  # 제거
     protobuf::libprotobuf
     Threads::Threads
 )
