@@ -28,7 +28,7 @@ add_executable(hello_grpc_server
 # Threads::Threads : POSIX 스레드 라이브러리 (gRPC 내부에서 사용)
 target_link_libraries(hello_grpc_server
     gRPC::grpc++
-    gRPC::grpc++_reflection  # gRPC 서버 리플렉션 (디버깅용)
+    # gRPC::grpc++_reflection  # 제거 - 별도 설정 필요
     protobuf::libprotobuf
     Threads::Threads
 )
