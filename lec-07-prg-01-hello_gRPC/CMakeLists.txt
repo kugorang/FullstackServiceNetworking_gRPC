@@ -19,6 +19,7 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 # Server 실행 파일 빌드 설정
 add_executable(hello_grpc_server
     server.cpp          # 메인 서버 구현 파일
+    hello_grpc.cpp      # 비즈니스 로직 구현
     ${PROTO_SRCS}      # protobuf와 gRPC 생성 소스 파일들
 )
 

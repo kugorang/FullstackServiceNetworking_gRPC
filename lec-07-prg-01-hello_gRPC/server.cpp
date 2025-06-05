@@ -1,4 +1,5 @@
 #include "server.hpp"
+#include "hello_grpc.hpp"
 #include <iostream>
 
 using namespace std;
@@ -16,10 +17,9 @@ Status MyServiceImplement::MyFunction(ServerContext* context, const MyNumber* re
     // 클라이언트로부터 받은 값 로깅
     cout << "서버가 받은 값: " << request->value() << endl;
     
-    // 제곱 계산
-    // Python: input_number * input_number
-    int32_t input_value = request->value();
-    int32_t result = input_value * input_value;
+    // 제곱 계산 - hello_grpc.cpp의 함수 호출
+    // Python: hello_grpc.my_func(request.value)
+    int32_t result = HelloGrpc::my_func(request->value());
     
     // 계산 결과를 응답 메시지에 설정
     response->set_value(result);
