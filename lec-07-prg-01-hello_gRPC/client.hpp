@@ -6,9 +6,6 @@
 #include "hello_grpc.pb.h"
 #include "hello_grpc.grpc.pb.h"
 
-using namespace std;
-using namespace grpc;
-
 /**
  * HelloClient 클래스
  * 
@@ -22,7 +19,7 @@ private:
      * gRPC stub (서비스의 로컬 프록시)
      * 원격 서비스 호출을 위한 인터페이스입니다.
      */
-    unique_ptr<MyService::Stub> stub;
+    std::unique_ptr<MyService::Stub> stub;
     
 public:
     /**
@@ -30,7 +27,7 @@ public:
      * 
      * @param channel 서버와의 통신 채널
      */
-    HelloClient(shared_ptr<Channel> channel);
+    HelloClient(std::shared_ptr<grpc::Channel> channel);
     
     /**
      * Execute 메서드

@@ -1,6 +1,9 @@
 #include "client.hpp"
 #include <iostream>
 
+using namespace std;
+using namespace grpc;
+
 /**
  * HelloClient 생성자
  * 

@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace grpc;
 
 /**
  * MyFunction 구현

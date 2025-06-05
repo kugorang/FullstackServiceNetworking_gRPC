@@ -5,8 +5,6 @@
 #include "hello_grpc.pb.h"
 #include "hello_grpc.grpc.pb.h"
 
-using namespace grpc;
-
 /**
  * MyServiceImplement 클래스
  * 
@@ -27,8 +25,9 @@ public:
      * @param response 서버 응답 (MyNumber 타입)
      * @return Status gRPC 상태 코드
      */
-    Status MyFunction(ServerContext* context, const MyNumber* request, 
-        MyNumber* response) override;
+    grpc::Status MyFunction(grpc::ServerContext* context, 
+                           const MyNumber* request,
+                           MyNumber* response) override;
 };
 
 #endif
