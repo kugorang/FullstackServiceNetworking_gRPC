@@ -16,15 +16,14 @@ void ClientStreamingClient::SendMessages()
     // 클라이언트 스트리밍을 위한 Writer 생성
     unique_ptr<ClientWriter<Message>> writer(stub->GetServerResponse(&context, &response));
     
-    // 전송할 메시지들
-    vector<std::string> messages = { "message #1", "message #2", "message #3",
-        "message #4", "message #5" };
+    // 5개의 메시지를 생성하여 전송
+    int message_count = 5;
     
-    // 각 메시지 전송
-    for (const auto& text : messages)
+    for (int i = 1; i <= message_count; ++i)
     {
+        // 메시지 생성
         Message message;
-        message.set_message(text);
+        message.set_message("message #" + to_string(i));
         
         cout << "[클라이언트 -> 서버] " << message.message() << endl;
         
@@ -40,7 +39,7 @@ void ClientStreamingClient::SendMessages()
     Status status = writer->Finish();
     
     if (status.ok())
-        cout << "[서버 -> 클라이언트] " << response.value() << endl
+        cout << "[서버 -> 클라이언트] " << response.value() << endl 
             << "서버가 " << response.value() << "개의 메시지를 받았습니다." << endl;
     else
         cerr << "RPC 실패: " << status.error_message() << endl;
